@@ -3,7 +3,7 @@ name: Quarkus CI/CD
 on:
   push:
     branches:
-      - main
+      - develop
 
 permissions: write-all
 
