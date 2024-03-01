@@ -51,12 +51,12 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa
 
-      - name: Deploy to GitHub Pages
-        run: |
-          # Assuming your Quarkus project generates static files in the `build` directory
-          ./gradlew quarkusBuild
-          mkdir -p deploy
-          cp -r build/* deploy/
+#      - name: Deploy to GitHub Pages
+#        run: |
+#          # Assuming your Quarkus project generates static files in the `build` directory
+#          ./gradlew quarkusBuild
+#          mkdir -p deploy
+#          cp -r build/* deploy/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
