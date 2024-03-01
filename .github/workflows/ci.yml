@@ -38,6 +38,9 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
 
+      - name: Use Secret in Workflow
+        run: echo ${{ secrets.DEPLOY_KEY }}
+
       - name: Deploy to GitHub Pages
         run: |
           # Assuming your Quarkus project generates static files in the `build` directory
@@ -48,6 +51,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          files: deploy/*
-          tag_name: ${{ github.sha }}
-          title: Develop ${{ github.sha }}
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./deploy
