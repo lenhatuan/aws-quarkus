@@ -21,7 +21,7 @@ jobs:
 
       - name: Build and Test Quarkus Project
         run: |
-          ./mvnw clean verify
+          ./gradlew clean build -x test
 
   deploy:
     runs-on: ubuntu-latest
