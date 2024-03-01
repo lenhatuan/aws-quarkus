@@ -38,6 +38,12 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
 
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: Deploy to GitHub Pages
         run: |
           # Assuming your Quarkus project generates static files in the `build` directory
