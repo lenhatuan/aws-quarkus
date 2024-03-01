@@ -38,9 +38,10 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          ./mvnw clean package -DskipTests
+          # Assuming your Quarkus project generates static files in the `build` directory
+          ./gradlew quarkusBuild
           mkdir -p deploy
-          cp target/*-runner.jar deploy/application.jar
+          cp -r build/* deploy/
 
       - name: Deploy to GitHub Releases
         uses: softprops/action-gh-release@v1
