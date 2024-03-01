@@ -45,9 +45,9 @@ jobs:
           mkdir -p deploy
           cp -r build/* deploy/
 
-      - name: Deploy to GitHub Releases
-        uses: softprops/action-gh-release@v1
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           files: deploy/*
           tag_name: ${{ github.sha }}
-          title: Release ${{ github.sha }}
+          title: Develop ${{ github.sha }}
